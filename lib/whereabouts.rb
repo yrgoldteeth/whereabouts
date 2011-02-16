@@ -1,2 +1,2 @@
 # Whereabouts
-require 'whereabout_methods'
+require 'whereabouts_methods'
