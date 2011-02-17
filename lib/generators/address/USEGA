@@ -1,0 +1,6 @@
+Description:
+  Copies address.rb to app/models/.
+  Copies create_address.rb to db/migrate.
+
+Examples:
+  'rails generate address'
