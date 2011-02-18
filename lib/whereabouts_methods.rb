@@ -13,6 +13,7 @@ module Yrgoldteeth
       module ClassMethods
         def has_whereabouts
           has_one :address, :as => :addressable, :dependent => :destroy
+          accepts_nested_attributes_for :address
           extend Yrgoldteeth::Has::Whereabouts::SingletonMethods
         end
       end
