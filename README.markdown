@@ -7,7 +7,7 @@ to be associated to ActiveRecord models.
 To install on Rails 3.x
     rails plugin install http://github.com/yrgoldteeth/whereabouts.git
 
-To install on Rails 2.3.x
+To install on Rails 2.3.x (no longer under development)
     script/plugin install http://github.com/yrgoldteeth/whereabouts.git -r 2.3x
 
 Generate files on Rails 3.x
@@ -32,3 +32,5 @@ Example
 
 
 Copyright (c) 2011 Nicholas Fine, released under the MIT license
+v0.1.0
+
