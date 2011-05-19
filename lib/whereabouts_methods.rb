@@ -66,10 +66,11 @@ module Yrgoldteeth
             def geocode_address
               geocode_fields.map{|f| self.send(f).to_s}.join(', ')
             end
+            
+            geocoded_by :geocode_address
+            after_validation :geocode
           end
 
-          geocoded_by :geocode_address
-          after_validation :geocode
         end
        
         # Generate a new class using Address as the superclass.  
