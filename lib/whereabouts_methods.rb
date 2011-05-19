@@ -25,7 +25,7 @@
 #     f.build_shipping_address
 #     f.build_mailing_address
 #
-# You can see the source on [github](https://github.com/yrgoldteet/whereabouts), and
+# You can see the source on [github](https://github.com/yrgoldteeth/whereabouts), and
 # this page was generated with the wonderful
 # [rocco](http://rtomayko.github.com/rocco/) documentation generator.  
 
@@ -44,6 +44,7 @@ module Yrgoldteeth
       module ClassMethods
         # Accepts a symbol that will define the inherited 
         # type of Address.  Defaults to the parent class.
+        # Also sets the has_one relationship and accepts_nested_attributes_for.  
         def has_whereabouts klass=:address, options={}
           unless klass == :address
             create_address_class(klass.to_s.classify)
