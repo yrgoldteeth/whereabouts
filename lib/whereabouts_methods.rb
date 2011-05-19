@@ -45,7 +45,6 @@ module Yrgoldteeth
         # Accepts a symbol that will define the inherited 
         # type of Address.  Defaults to the parent class.
         # Also sets the has_one relationship and accepts_nested_attributes_for.  
-        # FIXME this is broken. :(
         def has_whereabouts klass=:address, options={}
           unless klass == :address
             create_address_class(klass.to_s.classify)
@@ -57,23 +56,15 @@ module Yrgoldteeth
           # check for geocode in options
           # and confirm geocoder is defined
           if options[:geocode] && defined?(Geocoder)
-            geocode_fields = options.fetch(:geocode_fields){[:city, :state, :zip]}
-            set_geocoding(klass, geocode_fields)
+            set_geocoding
           end
         end
 
-        def set_geocoding klass=:address, geocode_fields
-          klass.to_s.classify.constantize.class_eval do
-            def geocode_address
-              geocode_fields.map{|f| self.send(f).to_s}.join(', ')
-            end
-            
-            geocoded_by :geocode_address
-            after_validation :geocode
-          end
-
+        def set_geocoding
+          geocoded_by :geocode_address
+          after_validation :geocode
         end
-       
+
         # Generate a new class using Address as the superclass.  
         # Accepts a string defining the inherited type.
         def create_address_class(class_name, &block)

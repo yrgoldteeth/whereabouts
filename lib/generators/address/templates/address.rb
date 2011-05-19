@@ -4,5 +4,9 @@ class Address < ActiveRecord::Base
 
   validates_presence_of :line1, :city, :state, :zip
   validates_format_of :zip, :with => ZIP_REGEX, :message => 'is invalid'
+
+  def geocode_address
+    "#{line1}, #{city} #{state} #{zip}"
+  end
 end
 
