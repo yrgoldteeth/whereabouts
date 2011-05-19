@@ -6,12 +6,14 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip
+      t.string :type
       t.references :addressable, :polymorphic => true
       t.timestamps
     end
 
     add_index :addresses, :addressable_type
     add_index :addresses, :addressable_id
+    add_index :addresses, :type
   end
 
   def self.down
