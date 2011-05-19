@@ -45,6 +45,7 @@ module Yrgoldteeth
         # Accepts a symbol that will define the inherited 
         # type of Address.  Defaults to the parent class.
         # Also sets the has_one relationship and accepts_nested_attributes_for.  
+        # FIXME this is broken. :(
         def has_whereabouts klass=:address, options={}
           unless klass == :address
             create_address_class(klass.to_s.classify)
