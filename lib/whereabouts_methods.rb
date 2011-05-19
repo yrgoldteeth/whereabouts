@@ -44,16 +44,16 @@ module Yrgoldteeth
       module ClassMethods
         # Accepts a symbol that will define the inherited 
         # type of Address.  Defaults to the parent class.
-        # Also sets the has_one relationship and accepts_nested_attributes_for.  
         def has_whereabouts klass=:address, options={}
           unless klass == :address
             create_address_class(klass.to_s.classify)
           end
           
+          # Set the has_one relationship and accepts_nested_attributes_for.  
           has_one klass, :as => :addressable, :dependent => :destroy
           accepts_nested_attributes_for klass
 
-          # check for geocode in options
+          # Check for geocode in options
           # and confirm geocoder is defined
           if options[:geocode] && defined?(Geocoder)
             set_geocoding(klass)
@@ -61,7 +61,7 @@ module Yrgoldteeth
         end
 
         def set_geocoding klass
-          class klass.to_s.classify.constantize
+          klass.to_s.classify.constantize.class_eval do
             geocoded_by :geocode_address
             after_validation :geocode
           end
