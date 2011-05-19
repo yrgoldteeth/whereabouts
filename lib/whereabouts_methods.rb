@@ -56,13 +56,15 @@ module Yrgoldteeth
           # check for geocode in options
           # and confirm geocoder is defined
           if options[:geocode] && defined?(Geocoder)
-            set_geocoding
+            set_geocoding(klass)
           end
         end
 
-        def set_geocoding
-          geocoded_by :geocode_address
-          after_validation :geocode
+        def set_geocoding klass
+          class klass.to_s.classify.constantize
+            geocoded_by :geocode_address
+            after_validation :geocode
+          end
         end
 
         # Generate a new class using Address as the superclass.  
