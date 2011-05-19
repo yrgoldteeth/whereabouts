@@ -49,8 +49,27 @@ module Yrgoldteeth
           unless klass == :address
             create_address_class(klass.to_s.classify)
           end
+          
           has_one klass, :as => :addressable, :dependent => :destroy
           accepts_nested_attributes_for klass
+
+          # check for geocode in options
+          # and confirm geocoder is defined
+          if options[:geocode] && defined?(Geocoder)
+            geocode_fields = options.fetch(:geocode_fields){[:city, :state, :zip]}
+            set_geocoding(klass, geocode_fields)
+          end
+        end
+
+        def set_geocoding klass=:address, geocode_fields
+          klass.to_s.classify.constantize.class_eval do
+            def geocode_address
+              geocode_fields.map{|f| self.send(f).to_s}.join(', ')
+            end
+          end
+
+          geocoded_by :geocode_address
+          after_validation :geocode
         end
        
         # Generate a new class using Address as the superclass.  

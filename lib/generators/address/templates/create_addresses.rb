@@ -7,6 +7,8 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :state
       t.string :zip
       t.string :type
+      t.float  :latitude
+      t.float  :longitude
       t.references :addressable, :polymorphic => true
       t.timestamps
     end
