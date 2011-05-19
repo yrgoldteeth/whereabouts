@@ -17,13 +17,22 @@
 # i.e. shipping address and mailing address  
 #
 #     class Foo < ActiveRecord::Base
-#       has_whereabouts :shipping_address
-#       has_whereabouts :mailing_address
+#       has_whereabouts :shipping
+#       has_whereabouts :mailing
 #     end
 #     
 #     f = Foo.new
-#     f.build_shipping_address
-#     f.build_mailing_address
+#     f.build_shipping
+#     f.build_mailing
+#
+# If you have the [Ruby Geocoder](http://www.rubygeocoder.com) specified in
+# your project's Gemfile, adding {:geocode => true} to the has_whereabouts
+# definition will automatically geocode and populate the latitude and
+# longitude fields for the record.
+#
+#     class Foo < ActiveRecord::Base
+#       has_whereabouts :shipping, {:geocode => true}
+#     end
 #
 # You can see the source on [github](https://github.com/yrgoldteeth/whereabouts), and
 # this page was generated with the wonderful
