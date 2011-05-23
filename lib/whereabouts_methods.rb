@@ -72,7 +72,7 @@ module Yrgoldteeth
         def set_geocoding klass
           klass.to_s.titleize.constantize.class_eval do
             geocoded_by :geocode_address
-            after_validation :geocode
+            after_validation :geocode, :if => lambda {|o| o.new_record? || o.changed?}
           end
         end
 
