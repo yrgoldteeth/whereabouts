@@ -70,7 +70,7 @@ module Yrgoldteeth
         end
 
         def set_geocoding klass
-          klass.to_s.classify.constantize.class_eval do
+          klass.to_s.titleize.constantize.class_eval do
             geocoded_by :geocode_address
             after_validation :geocode
           end
