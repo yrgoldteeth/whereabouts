@@ -1,3 +1,6 @@
+.gitignore
+Gemfile.lock
+
 # rcov generated
 coverage
 
