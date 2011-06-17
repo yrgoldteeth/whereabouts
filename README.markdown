@@ -5,12 +5,15 @@ Whereabouts is a Rails plugin that generates a polymorphic address model
 to be associated to ActiveRecord models. 
 
 To install on Rails 3.x add this to your Gemfile  
+    
     gem 'whereabouts'
 
-Generate the base address class and migration
+Generate the base address class and migration  
+    
     rails g address
 
 Run migrations  
+    
     rake db:migrate
 
 
@@ -47,5 +50,5 @@ Contributing to whereabouts
   * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 Copyright (c) 2011 [Nicholas Fine](http://ndfine.com), released under the MIT license  
-v0.2.0
+v0.5.1
 
