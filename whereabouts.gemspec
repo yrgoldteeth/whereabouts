@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{whereabouts}
-  s.version = "0.1.0"
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nicholas Fine"]
@@ -13,22 +13,16 @@ Gem::Specification.new do |s|
   s.description = %q{Rails plugin for adding associated addresses to Active Record Models}
   s.email = %q{nicholas.fine@gmail.com}
   s.extra_rdoc_files = [
-    "LICENSE.txt",
-    "README.markdown",
-    "README.rdoc"
+    "README.markdown"
   ]
   s.files = [
     ".document",
     ".rspec",
     "Gemfile",
-    "Gemfile.lock",
-    "LICENSE.txt",
     "MIT-LICENSE",
     "README.markdown",
-    "README.rdoc",
     "Rakefile",
     "VERSION",
-    "install.rb",
     "lib/generators/address/USAGE",
     "lib/generators/address/address_generator.rb",
     "lib/generators/address/templates/address.rb",
