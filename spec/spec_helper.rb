@@ -10,7 +10,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 # Build some dummy AR classes
 
-ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :dbfile => ':memory:', :database => 'whereaboots')
+ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :database => ':memory:')
 
 def setup_test_db
   ActiveRecord::Schema.define(:version => 1) do
