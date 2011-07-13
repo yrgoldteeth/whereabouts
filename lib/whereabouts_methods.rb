@@ -55,7 +55,7 @@ module Yrgoldteeth
         # type of Address.  Defaults to the parent class.
         def has_whereabouts klass=:address, options={}
           # extend Address with class name if not defined.
-          unless Class.constants.include?(klass.to_s.camelize.to_sym)
+          unless Object.const_defined?(klass.to_s.camelize)
             create_address_class(klass.to_s.camelize)
           end
           
