@@ -1,5 +1,4 @@
-Whereabouts
-===========
+# Whereabouts
 
 Whereabouts is a Rails plugin that generates a polymorphic address model
 to be associated to ActiveRecord models. 
@@ -16,11 +15,15 @@ Run migrations
     
     rake db:migrate
 
+If you have the [Ruby Geocoder](http://www.rubygeocoder.com) specified in
+your project's Gemfile, adding {:geocode => true} to the has_whereabouts
+definition will automatically geocode and populate the latitude and
+longitude fields for the record.
 
-Examples
-=======
+# Examples
 
-    # Basic use:  
+## Basic use:  
+
     class Thing < ActiveRecord::Base
       has_whereabouts
     end
@@ -28,7 +31,8 @@ Examples
     t = Thing.new
     t.build_address
 
-    # Multiple addresses on same model:  
+## Multiple addresses on same model:  
+
     class Foo < ActiveRecord::Base
       has_whereabouts :shipping_address
       has_whereabouts :mailing_address
@@ -37,6 +41,26 @@ Examples
     f = Foo.new
     f.build_shipping_address
     f.build_mailing_address
+
+## Validating Presence of Attributes
+
+    # Add :validate => [] to the option
+    # hash on the call to has_whereabouts.
+    # Options available in the array are
+    # :line1, :line2, :city, :state, :zip
+    class Thing < ActiveRecord::Base
+      has_whereabouts :location, {:validate => [:city, :state, :zip]}
+    end
+
+## Automatic Geocoding
+
+    # Must have Ruby Geocoder installed 
+    # and configured.  Will populate the
+    # latitude and longitude attributes
+    # on the Address
+    class Thing < ActiveRecord::Base
+      has_whereabouts :location, {:geocode => true}
+    end
 
 Contributing to whereabouts
 =========
@@ -50,5 +74,4 @@ Contributing to whereabouts
   * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 Copyright (c) 2011 [Nicholas Fine](http://ndfine.com), released under the MIT license  
-v0.5.1
 
