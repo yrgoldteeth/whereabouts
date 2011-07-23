@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{whereabouts}
-  s.version = "0.5.3"
+  s.version = "0.5.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nicholas Fine"]
-  s.date = %q{2011-07-13}
+  s.date = %q{2011-07-23}
   s.description = %q{Rails plugin for adding associated addresses to Active Record Models}
   s.email = %q{nicholas.fine@gmail.com}
   s.extra_rdoc_files = [
