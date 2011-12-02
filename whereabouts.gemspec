@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{whereabouts}
-  s.version = "0.6.0"
+  s.name = "whereabouts"
+  s.version = "0.6.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Nicholas Fine}]
-  s.date = %q{2011-12-02}
-  s.description = %q{Rails plugin for adding associated addresses to Active Record Models}
-  s.email = %q{nicholas.fine@gmail.com}
+  s.authors = ["Nicholas Fine"]
+  s.date = "2011-12-02"
+  s.description = "Rails plugin for adding associated addresses to Active Record Models"
+  s.email = "nicholas.fine@gmail.com"
   s.extra_rdoc_files = [
     "README.markdown"
   ]
@@ -33,11 +33,11 @@ Gem::Specification.new do |s|
     "spec/whereabouts_spec.rb",
     "whereabouts.gemspec"
   ]
-  s.homepage = %q{http://github.com/yrgoldteeth/whereabouts}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Whereabouts - has_whereabouts :address}
+  s.homepage = "http://github.com/yrgoldteeth/whereabouts"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.10"
+  s.summary = "Whereabouts - has_whereabouts :address"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
