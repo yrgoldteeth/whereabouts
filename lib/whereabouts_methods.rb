@@ -4,7 +4,8 @@ module Whereabouts
   module ClassMethods
     # Accepts a symbol that will define the inherited 
     # type of Address.  Defaults to the parent class.
-    def has_whereabouts klass=:address, options={}
+    def has_whereabouts klass=:address, *args
+      options = args.extract_options!
       # extend Address with class name if not defined.
       unless klass == :address || Object.const_defined?(klass.to_s.camelize)
         create_address_class(klass.to_s.camelize)
