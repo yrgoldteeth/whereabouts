@@ -1,5 +1,7 @@
 # Whereabouts
 
+[![Travis CI Build Status](http://travis-ci.org/yrgoldteeth/whereabouts.png)](http://travis-ci.org/yrgoldteeth/whereabouts)
+
 Whereabouts is a Rails plugin that generates a polymorphic address model
 to be associated to ActiveRecord models. 
 
