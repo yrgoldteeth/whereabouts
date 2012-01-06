@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency(%q<rspec>, ['~> 2.3.0'])
   s.add_development_dependency(%q<bundler>, ['~> 1.0.0'])
   s.add_development_dependency(%q<sqlite3>, ['>= 0'])
+  s.add_development_dependency(%q<rake>, ['>= 0'])
 end
 
