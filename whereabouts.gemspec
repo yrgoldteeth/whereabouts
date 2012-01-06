@@ -11,10 +11,11 @@ Gem::Specification.new do |s|
   s.licenses      = ['MIT']
   s.description   = 'Rails plugin for adding associated addresses to Active Record Models'
   s.summary       = 'Whereabouts - has_whereabouts :address'
-  s.require_paths = ['lib']
-  s.files         = `git ls-files`.split('\n')
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split('\n')
-  s.executables   = `git ls-files -- bin/*`.split('\n').map{ |f| File.basename(f) }
+  
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
 
   s.add_dependency(%q<activerecord>, ['>= 3.0.0'])
   s.add_dependency(%q<activesupport>, ['>= 3.0.0'])
