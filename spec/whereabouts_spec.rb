@@ -6,27 +6,27 @@ describe "Whereabouts" do
   describe 'AR model Customer has_whereabouts :address and has_whereabouts :test_address with validation fields' do
 
     it 'sets a singleton method for address_whereabouts_validate_fields' do
-      Customer.singleton_methods.include?(:address_whereabouts_validate_fields).should be true
+      expect(Customer.singleton_methods.include?(:address_whereabouts_validate_fields)).to be true
     end
 
     it 'sets a singleton method for test_address_whereabouts_validate_fields' do
-      Customer.singleton_methods.include?(:test_address_whereabouts_validate_fields).should be true
+      expect(Customer.singleton_methods.include?(:test_address_whereabouts_validate_fields)).to be true
     end
 
     it 'sets a singleton method for address_whereabouts_geocode?' do
-      Customer.singleton_methods.include?(:address_whereabouts_geocode?).should be true
+      expect(Customer.singleton_methods.include?(:address_whereabouts_geocode?)).to be true
     end
 
     it 'sets a singleton method for test_address_whereabouts_geocode?' do
-      Customer.singleton_methods.include?(:test_address_whereabouts_geocode?).should be true
+      expect(Customer.singleton_methods.include?(:test_address_whereabouts_geocode?)).to be true
     end
 
     it 'returns [] on the singleton method if no list of attributes is sent for the :validate options' do
-      Customer.address_whereabouts_validate_fields.should == []
+      expect(Customer.address_whereabouts_validate_fields).to eq []
     end
 
     it 'returns true on the singleton method if a list of attributes is sent for the :validate options' do
-      Customer.test_address_whereabouts_validate_fields.should == [:line1, :city, :state, :zip]
+      expect(Customer.test_address_whereabouts_validate_fields).to eq [:line1, :city, :state, :zip]
     end
   end
 
@@ -38,8 +38,8 @@ describe "Whereabouts" do
     end
 
     it 'validates correctly' do
-      @competitor_test.valid?.should be true
-      @customer_test.valid?.should be false
+      expect(@competitor_test.valid?).to be true
+      expect(@customer_test.valid?).to be false
     end
   end
 

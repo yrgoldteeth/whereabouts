@@ -36,6 +36,7 @@ def setup_test_db
   end
 end
 
+# FIXME this has a deprecation warning in 5.1
 def teardown_test_db
   ActiveRecord::Base.connection.tables.each do |t|
     ActiveRecord::Base.connection.drop_table(t)
